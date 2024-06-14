@@ -31,3 +31,16 @@ def evaluate_model(x_train,y_train,x_test,y_test,models):
         return report
     except Exception as e:
         raise CustomException(e,sys)
+    
+
+
+def load_object(file_path):
+    '''
+    this function is responsible for loading the object
+    '''
+    try:
+        with open(file_path,'rb') as file_obj:
+            obj=dill.load(file_obj)
+        return obj
+    except Exception as e:
+        raise CustomException(e,sys)
